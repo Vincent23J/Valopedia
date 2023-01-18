@@ -33,6 +33,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:src="@drawable/displayicon"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/tv_agentid"
+            android:text="Agent Id"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

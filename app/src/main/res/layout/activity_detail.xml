@@ -1,9 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.DetailActivity">
+    tools:context=".activities.DetailActivity"
+    android:background="@drawable/background"
+    android:backgroundTint="#D3C7C7">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="30pt"
+        android:layout_height="30pt"
+        android:id="@+id/img_Circle"
+        android:src="@drawable/PngItem_1146788"
+        android:layout_marginTop="6pt"
+        android:layout_marginLeft="6pt"/>
+
+    <ImageView
+        android:layout_width="30pt"
+        android:layout_height="30pt"
+        android:padding="2pt"
+        android:id="@+id/img_role"
+        android:src="@drawable/Role"
+        android:layout_alignLeft="@id/img_Circle"
+        android:layout_alignTop="@id/img_Circle"/>
+
+    <TextView
+        android:layout_width="30pt"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_role"
+        android:layout_marginLeft="6pt"
+        android:text="Initiator"
+        android:layout_marginTop="2pt"
+        android:textAlignment="center"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="90pt"
+        android:layout_marginTop="15pt"
+        android:src="@drawable/fullportrait"
+        android:id="@+id/img_char"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_name"
+        android:text="Fade"
+        android:fontFamily="@font/valorantfont"
+        android:layout_below="@id/img_char"
+        android:gravity="center"
+        android:layout_marginTop="10pt"
+        android:textSize="20pt"
+        android:textColor="@color/black" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_description"
+        android:text="Turkish bounty hunter Fade unleashes the power of raw nightmare to seize enemy secrets. Attuned with terror itself, she hunts down targets and reveals their deepest fears - before crushing them in the dark."
+        android:layout_below="@id/tv_name"
+        android:padding="10pt"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="73pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_abi1"
+        android:text="Ability 1"
+        android:layout_below="@id/tv_description"
+        android:layout_marginLeft="10pt"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="25pt"
+        android:layout_height="25pt"
+        android:id="@+id/img_ability1"
+        android:src="@drawable/ability1"
+        android:layout_below="@id/tv_abi1"
+        android:background="#8E8686"
+        android:layout_marginLeft="10pt"
+        />
+    <TextView
+        android:layout_width="48pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ability1"
+        android:layout_toRightOf="@id/img_ability1"
+        android:layout_alignTop="@id/img_ability1"
+        android:text="Seize"
+        android:layout_marginLeft="6dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:textSize="10pt"/>
+
+    <TextView
+        android:id="@+id/tv_abi2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_description"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@id/tv_abi1"
+        android:text="Ability 2"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="25pt"
+        android:layout_height="25pt"
+        android:id="@+id/img_ability2"
+        android:src="@drawable/ability2"
+        android:layout_below="@id/tv_abi2"
+        android:background="#8E8686"
+        android:layout_alignLeft="@id/tv_abi2"
+        />
+    <TextView
+        android:layout_width="48pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ability2"
+        android:layout_toRightOf="@id/img_ability2"
+        android:layout_alignTop="@id/img_ability2"
+        android:text="Haunt"
+        android:layout_marginLeft="6dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:textSize="10pt"/>
+
+    <TextView
+        android:layout_width="73pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_gren"
+        android:text="Grenade"
+        android:layout_below="@id/img_ability1"
+        android:layout_marginTop="10pt"
+        android:layout_marginLeft="10pt"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="25pt"
+        android:layout_height="25pt"
+        android:id="@+id/img_gren"
+        android:src="@drawable/grenade"
+        android:layout_below="@id/tv_gren"
+        android:background="#8E8686"
+        android:layout_marginLeft="10pt"
+        />
+
+    <TextView
+        android:layout_width="48pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_grenade"
+        android:layout_toRightOf="@id/img_gren"
+        android:layout_alignTop="@id/img_gren"
+        android:text="Prowler"
+        android:layout_marginLeft="6dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:textSize="10pt"/>
+
+    ##
+    <TextView
+        android:layout_width="73pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ulti"
+        android:text="Ultimate"
+        android:layout_below="@id/img_ability2"
+        android:layout_toRightOf="@+id/tv_gren"
+        android:layout_marginTop="10pt"
+        android:layout_marginLeft="10pt"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="25pt"
+        android:layout_height="25pt"
+        android:id="@+id/img_ulti"
+        android:src="@drawable/ultimate"
+        android:layout_toRightOf="@+id/tv_gren"
+        android:layout_below="@id/tv_ulti"
+        android:background="#8E8686"
+        android:layout_marginLeft="10pt"
+        />
+
+    <TextView
+        android:layout_width="48pt"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_ultimate"
+        android:layout_toRightOf="@id/img_ulti"
+        android:layout_alignTop="@id/img_ulti"
+        android:text="Nightfall"
+        android:layout_marginLeft="6dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/black"
+        android:textSize="10pt"/>
+
+
+
+</RelativeLayout>
