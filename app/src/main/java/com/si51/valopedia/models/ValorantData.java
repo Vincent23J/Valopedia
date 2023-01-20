@@ -1,18 +1,18 @@
 package com.si51.valopedia.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ValorantData {
-    private String displayName, description, displayIcon, fullPotrait, background;
-    private List<ValorantRole> roles;
-    private List<ValorantAbilities> ablilities;
+    private int count;
+    private String next, previous;
+    private List<ValorantModel> results;
 
 
-    public String  getDisplayName(){return displayName;}
-    public String  getDescription(){return description;}
-    public String  getDisplayIcon(){return displayIcon;}
-    public String  getFullPotrait(){return fullPotrait;}
-    public String  getBackground(){return background;}
-    public List<ValorantRole> getRoles(){return roles;}
-    public List<ValorantAbilities> getAblilities(){return ablilities;}
+    public ValorantData(){this.results = new ArrayList<>();}
+    public int getCount(){return count;}
+    public String getNext(){return next;}
+    public String getPrevious(){return previous;}
+    public List<ValorantModel> getResults() {return results;}
+
 }

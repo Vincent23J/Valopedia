@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.DetailActivity"
     android:background="@drawable/background"
-    android:backgroundTint="#D3C7C7">
+    android:backgroundTint="#D3C7C7"
+    android:id="@+id/RL_Detail">
 
     <ImageView
         android:layout_width="30pt"
         android:layout_height="30pt"
         android:id="@+id/img_Circle"
-        android:src="@drawable/PngItem_1146788"
+        android:src="@drawable/circle"
         android:layout_marginTop="6pt"
         android:layout_marginLeft="6pt"/>
 
@@ -21,11 +22,12 @@
         android:layout_height="30pt"
         android:padding="2pt"
         android:id="@+id/img_role"
-        android:src="@drawable/Role"
+        android:src="@drawable/role"
         android:layout_alignLeft="@id/img_Circle"
         android:layout_alignTop="@id/img_Circle"/>
 
     <TextView
+        android:id="@+id/tv_role"
         android:layout_width="30pt"
         android:layout_height="wrap_content"
         android:layout_below="@id/img_role"

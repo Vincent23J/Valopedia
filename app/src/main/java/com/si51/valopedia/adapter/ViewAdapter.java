@@ -4,68 +4,72 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.si51.valopedia.R;
 import com.si51.valopedia.models.ValorantData;
+import com.si51.valopedia.models.ValorantDetail;
+import com.si51.valopedia.models.ValorantModel;
+import com.si51.valopedia.services.ItemClickListener;
 
 import java.util.ArrayList;
 
 public class ViewAdapter extends RecyclerView.Adapter<ViewAdapter.DataViewHolder>{
-    private ArrayList<ValorantData> dataModelsArrayList;
+    private ValorantData result = new ValorantData();
+    private ItemClickListener<ValorantModel> itemClickListener;
+    private ValorantData results;
 
-    public ViewAdapter(ArrayList<ValorantData> dataModelsArrayList) {
-        this.dataModelsArrayList = dataModelsArrayList;
+    public ViewAdapter(ItemClickListener<ValorantModel> itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
+    public void setData(ValorantData results){
+        this.results = results;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
-        return new DataViewHolder(view);
+        return new DataViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
-        ValorantData dataModel = dataModelsArrayList.get(position);
+        int pos = holder.getAdapterPosition();
 
-        holder.tvName.setText(dataModel.getJudul());
-        holder.tvKeterangan.setText(dataModel.getKeterangan());
-        holder.tvVideoid.setText(dataModel.getVideoid());
+        holder.tvName.setText(results.getResults().get(pos).getDisplayName());
+        //holder.tvDescription.setText(dataModel.getDescription());
+//        holder.tvCharImg.setText(dataModel.getVideoid());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String judul = dataModelsArrayList.get(holder.getBindingAdapterPosition()).getJudul();
-                String keterangan = dataModelsArrayList.get(holder.getBindingAdapterPosition()).getKeterangan();
-                String videoid = dataModelsArrayList.get(holder.getBindingAdapterPosition()).getVideoid();
-
-                Intent intent = new Intent(holder.itemView.getContext(), DetailActivity.class);
-                intent.putExtra("varJudul", judul);
-                intent.putExtra("varKeterangan", keterangan);
-                intent.putExtra("varVideoid", videoid);
-                holder.itemView.getContext().startActivity(intent);
+                itemClickListener.onItemClick(results.getResults().get(pos), pos );
             }
-        });
+        }
+        );
     }
 
     @Override
     public int getItemCount() {
-        return dataModelsArrayList.size();
+        return results.getResults().size();
     }
 
     public class DataViewHolder extends RecyclerView.ViewHolder{
-        TextView tvName, tvDescription, tvCharImg, tvBackground;
+        TextView tvName;
+        ImageView imgChar;
 
         public DataViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tv);
-            tvDescription = itemView.findViewById(R.id.tv_keterangan);
-            tvCharImg = itemView.findViewById(R.id.tv_videoid);
-            tvBackground = itemView.findViewById(R.id.tv_videoid);
+            tvName = itemView.findViewById(R.id.tv_name);
+            imgChar = itemView.findViewById(R.id.img_char);
 
         }
     }
